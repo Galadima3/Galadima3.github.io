@@ -1,106 +1,34 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:portfolio_site/extensions/extensions.dart';
-
-// class DetailSection extends StatelessWidget {
-//   const DetailSection({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final textTheme = Theme.of(context).textTheme;
-
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.center,
-//       children: [
-//         CircleAvatar(radius: 62.5, backgroundColor: Colors.black),
-//         // Name
-//         Text(
-//           "John Galadima",
-//           style: textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold),
-//         ),
-//         const SizedBox(height: 5),
-
-//         // Job Title
-//         Text(
-//           "Mobile Developer [Dart & Flutter]",
-//           style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
-//         ),
-//         const SizedBox(height: 10.5),
-
-//         // ✅ Email and Location - aligned left under centered block
-//         Column(
-//           mainAxisSize: MainAxisSize.min,
-//           crossAxisAlignment: CrossAxisAlignment.start, // aligns icon + text
-//           children: [
-//             Row(
-//               mainAxisSize: MainAxisSize.min,
-//               children: [
-//                 SvgPicture.asset(
-//                   'assets/images/icons/mail.svg',
-//                   height: 20,
-//                   width: 20,
-//                 ),
-//                 const SizedBox(width: 8),
-//                 const Text("Galadima3@protonmail.com"),
-//               ],
-//             ),
-//             const SizedBox(height: 8),
-//             Row(
-//               mainAxisSize: MainAxisSize.min,
-//               children: const [
-//                 Icon(Icons.location_pin, size: 20),
-//                 SizedBox(width: 8),
-//                 Text("Abuja, Nigeria"),
-//               ],
-//             ),
-//           ],
-//         ),
-
-//         const SizedBox(height: 16),
-
-//         // Social icons centered
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             "assets/images/icons/github.svg".asSvgAsset(height: 30, width: 30),
-//             const SizedBox(width: 15),
-//             "assets/images/icons/linkedin.svg".asSvgAsset(
-//               height: 30,
-//               width: 30,
-//             ),
-//             const SizedBox(width: 15),
-//             "assets/images/icons/twitter.svg".asSvgAsset(height: 30, width: 30),
-//           ],
-//         ),
-//       ],
-//     );
-//   }
-// }
-
 // widgets/details_section.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_site/extensions/extensions.dart';
+import 'package:portfolio_site/main.dart';
 import 'package:portfolio_site/responsive.dart';
 
-class DetailSection extends StatelessWidget {
+class DetailSection extends ConsumerWidget {
   const DetailSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    //TODO: fix appropriate icons depending on theme
+    final isDarkMode = ref.watch(themeStateProvider);
+
     final textTheme = Theme.of(context).textTheme;
     final isDesktop = Responsive.isDesktop(context);
     final isTablet = Responsive.isTablet(context);
 
-    final nameStyle = isDesktop
-        ? textTheme.headlineSmall
-        : isTablet
+    final nameStyle =
+        isDesktop
+            ? textTheme.headlineSmall
+            : isTablet
             ? textTheme.titleLarge
             : textTheme.titleMedium;
 
-    final titleStyle = isDesktop
-        ? textTheme.bodyLarge
-        : isTablet
+    final titleStyle =
+        isDesktop
+            ? textTheme.bodyLarge
+            : isTablet
             ? textTheme.bodyMedium
             : textTheme.bodySmall;
 
@@ -120,9 +48,15 @@ class DetailSection extends StatelessWidget {
                       backgroundColor: Colors.black,
                     ),
                     const SizedBox(height: 16),
-                    Text("John Galadima", style: nameStyle?.copyWith(fontWeight: FontWeight.bold)),
+                    Text(
+                      "John Galadima",
+                      style: nameStyle?.copyWith(fontWeight: FontWeight.bold),
+                    ),
                     const SizedBox(height: 6),
-                    Text("Mobile Developer [Dart & Flutter]", style: titleStyle),
+                    Text(
+                      "Mobile Developer [Dart & Flutter]",
+                      style: titleStyle,
+                    ),
                     const SizedBox(height: 10.5),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,11 +64,8 @@ class DetailSection extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset(
-                              'assets/images/icons/mail.svg',
-                              height: 20,
-                              width: 20,
-                            ),
+                            Icon(Icons.email, size: 20),
+
                             const SizedBox(width: 8),
                             const Text("Galadima3@protonmail.com"),
                           ],
@@ -154,11 +85,35 @@ class DetailSection extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        "assets/images/icons/github.svg".asSvgAsset(height: 30, width: 30),
-                        const SizedBox(width: 15),
-                        "assets/images/icons/linkedin.svg".asSvgAsset(height: 30, width: 30),
-                        const SizedBox(width: 15),
-                        "assets/images/icons/twitter.svg".asSvgAsset(height: 30, width: 30),
+                        ...(isDarkMode
+                            ? [
+                              "assets/images/icons/github_light.svg".asSvgAsset(
+                                height: 30,
+                                width: 30,
+                              ),
+                              const SizedBox(width: 15),
+                              "assets/images/icons/linkedin_light.svg"
+                                  .asSvgAsset(height: 30, width: 30,),
+                              const SizedBox(width: 15),
+                              "assets/images/icons/twitter_light.svg"
+                                  .asSvgAsset(height: 30, width: 30),
+                            ]
+                            : [
+                              "assets/images/icons/github.svg".asSvgAsset(
+                                height: 30,
+                                width: 30,
+                              ),
+                              const SizedBox(width: 15),
+                              "assets/images/icons/linkedin.svg".asSvgAsset(
+                                height: 30,
+                                width: 30,
+                              ),
+                              const SizedBox(width: 15),
+                              "assets/images/icons/twitter.svg".asSvgAsset(
+                                height: 30,
+                                width: 30,
+                              ),
+                            ]),
                       ],
                     ),
                   ],
@@ -170,7 +125,14 @@ class DetailSection extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    //color: Colors.grey.shade100,
+                    border: Border.all(
+                      // color: Colors.blue
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colors.black
+                              : Color(0xFF39FF14),
+                    ),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -200,12 +162,12 @@ class DetailSection extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                radius: 60,
-                backgroundColor: Colors.black,
-              ),
+              const CircleAvatar(radius: 60, backgroundColor: Colors.black),
               const SizedBox(height: 12),
-              Text("John Galadima", style: nameStyle?.copyWith(fontWeight: FontWeight.bold)),
+              Text(
+                "John Galadima",
+                style: nameStyle?.copyWith(fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 6),
               Text("Mobile Developer [Dart & Flutter]", style: titleStyle),
               const SizedBox(height: 10.5),
@@ -239,11 +201,20 @@ class DetailSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  "assets/images/icons/github.svg".asSvgAsset(height: 30, width: 30),
+                  "assets/images/icons/github.svg".asSvgAsset(
+                    height: 30,
+                    width: 30,
+                  ),
                   const SizedBox(width: 15),
-                  "assets/images/icons/linkedin.svg".asSvgAsset(height: 30, width: 30),
+                  "assets/images/icons/linkedin.svg".asSvgAsset(
+                    height: 30,
+                    width: 30,
+                  ),
                   const SizedBox(width: 15),
-                  "assets/images/icons/twitter.svg".asSvgAsset(height: 30, width: 30),
+                  "assets/images/icons/twitter.svg".asSvgAsset(
+                    height: 30,
+                    width: 30,
+                  ),
                 ],
               ),
               const SizedBox(height: 24),
@@ -251,7 +222,13 @@ class DetailSection extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  border: Border.all(
+                    color:
+                        Theme.of(context).brightness == Brightness.light
+                            ? Colors.black
+                            : Color(0xFF39FF14),
+                  ),
+                  //color: Colors.grey.shade100,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(

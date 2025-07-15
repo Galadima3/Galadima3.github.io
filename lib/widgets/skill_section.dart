@@ -100,7 +100,7 @@ class SkillSection extends StatelessWidget {
                   children: skills
                       .map((skill) => Chip(
                             label: Text(skill),
-                            backgroundColor: Colors.grey.shade200,
+                            //backgroundColor: Colors.grey.shade200,
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           ))
                       .toList(),

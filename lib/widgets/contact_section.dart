@@ -124,7 +124,7 @@ class ContactSection extends StatelessWidget {
                 ? theme.bodyMedium
                 : theme.bodySmall;
 
-        return Container(
+        return SizedBox(
           width: double.infinity,
           child: Column(
             crossAxisAlignment:
