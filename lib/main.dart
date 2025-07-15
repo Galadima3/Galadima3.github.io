@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:portfolio_site/widgets/contact_section.dart';
 import 'package:portfolio_site/widgets/details_section.dart';
 import 'package:portfolio_site/widgets/project_section.dart';
 import 'package:portfolio_site/widgets/skill_section.dart';
 
-//TODO:
-//1. Complete theming
-//2. Add url_launcher
-//3. use my texts
-//
+//TODO: Add Button to download CV
+
 
 final themeStateProvider = StateProvider<bool>((ref) => true);
 
@@ -24,14 +22,19 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     bool isDarkMode = ref.watch(themeStateProvider);
-    return MaterialApp(
-      title: 'Portfolio',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: isDarkMode ? Brightness.dark : Brightness.light,
-        fontFamily: 'Montserrat',
-      ),
-      home: const MyHomePage(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      builder:
+          (context, child) => MaterialApp(
+            title: 'Portfolio',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              brightness: isDarkMode ? Brightness.dark : Brightness.light,
+              fontFamily: 'Montserrat',
+            ),
+            home: const MyHomePage(),
+          ),
     );
   }
 }
@@ -65,11 +68,11 @@ class MyHomePage extends StatelessWidget {
             child: Column(
               children: [
                 DetailSection(),
-                SizedBox(height: 32),
+                SizedBox(height: 32.h),
                 ProjectSection(),
-                SizedBox(height: 15),
+                SizedBox(height: 15.h),
                 SkillSection(),
-                SizedBox(height: 15),
+                SizedBox(height: 15.h),
                 ContactSection(),
               ],
             ),

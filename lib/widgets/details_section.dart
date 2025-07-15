@@ -1,19 +1,18 @@
 // widgets/details_section.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio_site/extensions/extensions.dart';
-import 'package:portfolio_site/main.dart';
-import 'package:portfolio_site/responsive.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio_site/core/constants/details.dart';
+import 'package:portfolio_site/core/utils/responsive.dart';
+import 'package:portfolio_site/widgets/social_icon_button.dart';
 
 class DetailSection extends ConsumerWidget {
   const DetailSection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //TODO: fix appropriate icons depending on theme
-    final isDarkMode = ref.watch(themeStateProvider);
-
     final textTheme = Theme.of(context).textTheme;
     final isDesktop = Responsive.isDesktop(context);
     final isTablet = Responsive.isTablet(context);
@@ -47,17 +46,14 @@ class DetailSection extends ConsumerWidget {
                       radius: 60,
                       backgroundColor: Colors.black,
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     Text(
-                      "John Galadima",
+                      "${Details.name},",
                       style: nameStyle?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 6),
-                    Text(
-                      "Mobile Developer [Dart & Flutter]",
-                      style: titleStyle,
-                    ),
-                    const SizedBox(height: 10.5),
+                    SizedBox(height: 6.h),
+                    Text(Details.jobTitle, style: titleStyle),
+                    SizedBox(height: 10.5.h),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -66,68 +62,33 @@ class DetailSection extends ConsumerWidget {
                           children: [
                             Icon(Icons.email, size: 20),
 
-                            const SizedBox(width: 8),
-                            const Text("Galadima3@protonmail.com"),
+                            SizedBox(width: 8.w),
+                            Text(Details.email),
                           ],
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.location_pin, size: 20),
-                            SizedBox(width: 8),
-                            Text("Abuja, Nigeria"),
+                            SizedBox(width: 8.w),
+                            Text(Details.location),
                           ],
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ...(isDarkMode
-                            ? [
-                              "assets/images/icons/github_light.svg".asSvgAsset(
-                                height: 30,
-                                width: 30,
-                              ),
-                              const SizedBox(width: 15),
-                              "assets/images/icons/linkedin_light.svg"
-                                  .asSvgAsset(height: 30, width: 30,),
-                              const SizedBox(width: 15),
-                              "assets/images/icons/twitter_light.svg"
-                                  .asSvgAsset(height: 30, width: 30),
-                            ]
-                            : [
-                              "assets/images/icons/github.svg".asSvgAsset(
-                                height: 30,
-                                width: 30,
-                              ),
-                              const SizedBox(width: 15),
-                              "assets/images/icons/linkedin.svg".asSvgAsset(
-                                height: 30,
-                                width: 30,
-                              ),
-                              const SizedBox(width: 15),
-                              "assets/images/icons/twitter.svg".asSvgAsset(
-                                height: 30,
-                                width: 30,
-                              ),
-                            ]),
-                      ],
-                    ),
+                    SizedBox(height: 16.h),
+                    SocialIconRow(),
                   ],
                 ),
               ),
-              const SizedBox(width: 48),
+              SizedBox(width: 48.w),
               Expanded(
                 flex: 5,
                 child: Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    //color: Colors.grey.shade100,
                     border: Border.all(
-                      // color: Colors.blue
                       color:
                           Theme.of(context).brightness == Brightness.light
                               ? Colors.black
@@ -144,12 +105,10 @@ class DetailSection extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12.h),
                       Text(
-                        "I am a passionate mobile developer with a knack for creating user-friendly, efficient, and innovative applications."
-                        " Currently, I'm focused on refining my skills and building apps that showcase creativity and functionality."
-                        " Whether it's crafting dynamic interfaces or implementing clean, maintainable code, I'm dedicated to delivering excellence in every project.",
-                        style: textTheme.bodyMedium,
+                        Details.about,
+                        style: textTheme.bodyMedium?.copyWith(fontSize: 15),
                       ),
                     ],
                   ),
@@ -163,14 +122,14 @@ class DetailSection extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const CircleAvatar(radius: 60, backgroundColor: Colors.black),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.r),
               Text(
-                "John Galadima",
+                Details.name,
                 style: nameStyle?.copyWith(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 6),
-              Text("Mobile Developer [Dart & Flutter]", style: titleStyle),
-              const SizedBox(height: 10.5),
+              SizedBox(height: 6.h),
+              Text(Details.jobTitle, style: titleStyle),
+              SizedBox(height: 10.5.h),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -178,46 +137,28 @@ class DetailSection extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
-                        'assets/images/icons/mail.svg',
-                        height: 20,
-                        width: 20,
+                        'assets/icons/mail.svg',
+                        height: 20.h,
+                        width: 20.w,
                       ),
-                      const SizedBox(width: 8),
-                      const Text("Galadima3@protonmail.com"),
+                      SizedBox(width: 8.w),
+                      Text(Details.email),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Icon(Icons.location_pin, size: 20),
-                      SizedBox(width: 8),
-                      Text("Abuja, Nigeria"),
+                      SizedBox(width: 8.w),
+                      Text(Details.location),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  "assets/images/icons/github.svg".asSvgAsset(
-                    height: 30,
-                    width: 30,
-                  ),
-                  const SizedBox(width: 15),
-                  "assets/images/icons/linkedin.svg".asSvgAsset(
-                    height: 30,
-                    width: 30,
-                  ),
-                  const SizedBox(width: 15),
-                  "assets/images/icons/twitter.svg".asSvgAsset(
-                    height: 30,
-                    width: 30,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
+              SizedBox(height: 16.h),
+              SocialIconRow(),
+              SizedBox(height: 24.h),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
@@ -228,7 +169,6 @@ class DetailSection extends ConsumerWidget {
                             ? Colors.black
                             : Color(0xFF39FF14),
                   ),
-                  //color: Colors.grey.shade100,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -240,13 +180,8 @@ class DetailSection extends ConsumerWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    Text(
-                      "I am a passionate mobile developer with a knack for creating user-friendly, efficient, and innovative applications."
-                      " Currently, I'm focused on refining my skills and building apps that showcase creativity and functionality."
-                      " Whether it's crafting dynamic interfaces or implementing clean, maintainable code, I'm dedicated to delivering excellence in every project.",
-                      style: textTheme.bodySmall,
-                    ),
+                    SizedBox(height: 12.h),
+                    Text(Details.about, style: textTheme.bodySmall),
                   ],
                 ),
               ),
@@ -254,6 +189,33 @@ class DetailSection extends ConsumerWidget {
           );
         }
       },
+    );
+  }
+}
+
+class SocialIconRow extends StatelessWidget {
+  const SocialIconRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SocialIconButton(
+          icon: FontAwesomeIcons.github,
+          url: 'https://github.com/Galadima3',
+        ),
+        SizedBox(width: 10),
+        SocialIconButton(
+          icon: FontAwesomeIcons.linkedin,
+          url: 'https://www.linkedin.com/in/john-abraham-galadima/',
+        ),
+        SizedBox(width: 10),
+        SocialIconButton(
+          icon: FontAwesomeIcons.twitter,
+          url: 'https://x.com/Galadima3x',
+        ),
+      ],
     );
   }
 }
