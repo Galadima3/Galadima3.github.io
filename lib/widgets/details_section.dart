@@ -46,14 +46,14 @@ class DetailSection extends ConsumerWidget {
                       radius: 60,
                       backgroundColor: Colors.black,
                     ),
-                    SizedBox(height: 16.h),
+                    SizedBox(height: 16),
                     Text(
                       "${Details.name},",
                       style: nameStyle?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 6.h),
+                    SizedBox(height: 6),
                     Text(Details.jobTitle, style: titleStyle),
-                    SizedBox(height: 10.5.h),
+                    SizedBox(height: 10.5),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -62,16 +62,16 @@ class DetailSection extends ConsumerWidget {
                           children: [
                             Icon(Icons.email, size: 20),
 
-                            SizedBox(width: 8.w),
+                            SizedBox(width: 8),
                             Text(Details.email),
                           ],
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.location_pin, size: 20),
-                            SizedBox(width: 8.w),
+                            SizedBox(width: 8),
                             Text(Details.location),
                           ],
                         ),
