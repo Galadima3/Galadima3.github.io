@@ -33,7 +33,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "d81b782b4101854da4d56545bf561421
 "version.json": "3d580c8884ce2e572a5ba7fd382bd4a3",
 "android-chrome-192x192.png": "5bc252d32c31d48a100622f7f62c2e0d",
 "manifest.json": "68e43207ff2bcdbb5b019d37977c08ca",
-"flutter_bootstrap.js": "90fef787943c57a0dc381a776caa52df",
+"flutter_bootstrap.js": "e1ee4199bb5f8200548d2ac77663e215",
 "canvaskit/skwasm.wasm": "f0dfd99007f989368db17c9abeed5a49",
 "canvaskit/canvaskit.wasm": "efeeba7dcc952dae57870d4df3111fad",
 "canvaskit/skwasm.js.symbols": "80806576fa1056b43dd6d0b445b4b6f7",
