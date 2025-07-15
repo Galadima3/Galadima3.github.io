@@ -136,11 +136,7 @@ class DetailSection extends ConsumerWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(
-                        'assets/icons/mail.svg',
-                        height: 20.h,
-                        width: 20.w,
-                      ),
+                      Icon(Icons.email, size: 20),
                       SizedBox(width: 8.w),
                       Text(Details.email),
                     ],
