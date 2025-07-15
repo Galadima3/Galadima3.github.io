@@ -52,51 +52,57 @@ class ContactSection extends StatelessWidget {
                 style: bodyStyle,
               ),
               SizedBox(height: 15.h),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue.shade800,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade800,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-
-                onPressed: () async {
-                  final Uri uri = Uri(
-                    scheme: 'mailto',
-                    path: Details.email,
-                    query: 'subject=Let\'s connect&body=Hi John,',
-                  );
-
-                  try {
-                    await launchUrl(
-                      uri,
-                      mode:
-                          LaunchMode
-                              .platformDefault, // Critical for web/mobile support
+                
+                  onPressed: () async {
+                    final Uri uri = Uri(
+                      scheme: 'mailto',
+                      path: Details.email,
+                      query: 'subject=Let\'s connect&body=Hi John,',
                     );
-                  } catch (e) {
-                    debugPrint('Could not launch email client: $e');
-                  }
-                },
-
-                child: const Text(
-                  "Get in Touch",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                
+                    try {
+                      await launchUrl(
+                        uri,
+                        mode:
+                            LaunchMode
+                                .platformDefault, // Critical for web/mobile support
+                      );
+                    } catch (e) {
+                      debugPrint('Could not launch email client: $e');
+                    }
+                  },
+                
+                  child: const Text(
+                    "Get in Touch",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
               SizedBox(height: 48.h),
               const Divider(color: Colors.black26, thickness: 0.5),
               SizedBox(height: 16.h),
-              Text(
-                "© 2025 John Galadima. All rights reserved.",
-                style: theme.bodyMedium,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  "© 2025 John Galadima. All rights reserved.",
+                  style: theme.bodyMedium,
+                ),
               ),
               SizedBox(height: 16.h),
               Row(
