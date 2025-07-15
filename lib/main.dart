@@ -8,6 +8,7 @@ import 'package:portfolio_site/widgets/project_section.dart';
 import 'package:portfolio_site/widgets/skill_section.dart';
 
 //TODO: Add Button to download CV
+//TODO: Add Image
 
 
 final themeStateProvider = StateProvider<bool>((ref) => true);
