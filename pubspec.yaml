@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.2.0
   font_awesome_flutter: ^10.8.0
   flutter_screenutil: ^5.9.3
+  web: ^1.1.1
 
 dev_dependencies:
   flutter_test:

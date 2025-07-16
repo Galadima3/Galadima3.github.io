@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:portfolio_site/core/utils/responsive.dart';
+import 'package:web/web.dart' as web;
 import 'package:portfolio_site/widgets/contact_section.dart';
 import 'package:portfolio_site/widgets/details_section.dart';
 import 'package:portfolio_site/widgets/project_section.dart';
 import 'package:portfolio_site/widgets/skill_section.dart';
 
-//TODO: Add Button to download CV
-//TODO: Add Image
 
+//TODO: Configure text font size on mobile
+//TODO: Add Image
 
 final themeStateProvider = StateProvider<bool>((ref) => true);
 
@@ -28,7 +29,7 @@ class MyApp extends ConsumerWidget {
       minTextAdapt: true,
       builder:
           (context, child) => MaterialApp(
-            title: 'Portfolio',
+            title: 'John Galadima - Portfolio',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               brightness: isDarkMode ? Brightness.dark : Brightness.light,
@@ -61,6 +62,47 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(8),
+              onTap: () {
+                final anchor =
+                    web.document.createElement('a') as web.HTMLAnchorElement;
+                anchor.href = 'assets/John Galadima_CV.pdf';
+                anchor.download = 'John Galadima_CV.pdf';
+                anchor.click();
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 8,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white70
+                            : Colors.black87,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.download),
+                    SizedBox(width: 8),
+                    Text(
+                      Responsive.isMobile(context) ? "CV" : "Download CV",
+                      //style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
