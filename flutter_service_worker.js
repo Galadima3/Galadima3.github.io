@@ -3,10 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "1633d264a4f638c6e371fc8613ca122f",
+const RESOURCES = {"assets/AssetManifest.bin": "fad96583735490cbd4a60cd01050334f",
+"assets/assets/images/my_image.jpeg": "f2160eae2986c7002b9e28f26cda9281",
 "assets/assets/images/project1.png": "f6ead8d18823d9209ab19b06d6ad1d9f",
 "assets/assets/images/og-image.jpg": "8131bf0a4b71ab85da3b30c1efb702ba",
-"assets/assets/images/project2.png": "f048f4daf28a3120d2833f58e5f0a0f9",
+"assets/assets/images/labari.jpg": "aab199a2ac8cf40f7483b8131cd8d0ca",
+"assets/assets/images/portfolio_logo.jpg": "5ecbbd7a85b9795025e7f8c122d51ea3",
 "assets/assets/fonts/Montserrat-Bold.ttf": "354dc625a35bef1b6ec00a79c6cfc0c8",
 "assets/assets/fonts/Montserrat-Medium.ttf": "ee130b491bf120cdb261d27ec29e2805",
 "assets/assets/fonts/Montserrat-ExtraBold.ttf": "1497e6fee4dd060b35f6b49e4241cb3f",
@@ -23,9 +25,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "1633d264a4f638c6e371fc8613ca122f
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/John%20Galadima_CV.pdf": "1704653d9aa0843dc17fcc0c0e4bff5c",
 "assets/FontManifest.json": "77c3562f81115f1c9605fbfb459c19f0",
-"assets/AssetManifest.json": "3c3d1e4c5548dee942b085f65f65990e",
+"assets/AssetManifest.json": "16012341e26cc2a509a5f3dd6fba2216",
 "assets/fonts/MaterialIcons-Regular.otf": "abd4c8e54c54bc21b4b6a9903e0aa81d",
-"assets/AssetManifest.bin.json": "4e625a73cbb5243e678455236917ae7a",
+"assets/AssetManifest.bin.json": "815e55a12ebcc5a50f38f58387a322e7",
 "assets/NOTICES": "892edb1b9953f50c8001fdb07b0d165c",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "33b7d9392238c04c131b6ce224e13711",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "a2eb084b706ab40c90610942d98886ec",
@@ -35,7 +37,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "1633d264a4f638c6e371fc8613ca122f
 "version.json": "3d580c8884ce2e572a5ba7fd382bd4a3",
 "android-chrome-192x192.png": "5bc252d32c31d48a100622f7f62c2e0d",
 "manifest.json": "5207c2391ebb919271ac337804020bc8",
-"flutter_bootstrap.js": "4081d404e1b238c19a55ac60ef5fa5b6",
+"flutter_bootstrap.js": "1f6b4f59d8f13ec716ab1604a798a050",
 "canvaskit/skwasm.wasm": "f0dfd99007f989368db17c9abeed5a49",
 "canvaskit/canvaskit.wasm": "efeeba7dcc952dae57870d4df3111fad",
 "canvaskit/skwasm.js.symbols": "80806576fa1056b43dd6d0b445b4b6f7",
@@ -49,8 +51,8 @@ const RESOURCES = {"assets/AssetManifest.bin": "1633d264a4f638c6e371fc8613ca122f
 "canvaskit/canvaskit.js.symbols": "68eb703b9a609baef8ee0e413b442f33",
 "canvaskit/skwasm_st.js": "d1326ceef381ad382ab492ba5d96f04d",
 "favicon-16x16.png": "ed9bb83764ee162a4897ff9acf17838d",
-"index.html": "066f5ae644eb184f2d87d06d1a133e15",
-"/": "066f5ae644eb184f2d87d06d1a133e15",
+"index.html": "df91e8c83cddaf96abbc4b306dd14222",
+"/": "df91e8c83cddaf96abbc4b306dd14222",
 "android-chrome-512x512.png": "de7ab30a91667603485227d3b11a975b",
 "apple-touch-icon.png": "cd3dbd241a0188f42c9d73f7bfbe7e9f",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -60,7 +62,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "1633d264a4f638c6e371fc8613ca122f
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
-"main.dart.js": "1277576f6804571eaa0c4f7eb6f58237"};
+"main.dart.js": "62a238a174b5803ba5e1717678c60a98"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
