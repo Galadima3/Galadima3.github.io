@@ -28,7 +28,10 @@ class DetailSection extends ConsumerWidget {
             ? textTheme.bodyLarge
             : isTablet
             ? textTheme.bodyMedium
-            : textTheme.bodySmall;
+            : textTheme.bodySmall?.copyWith(
+              fontWeight: FontWeight.w500,
+              fontSize: 14.5,
+            );
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -43,7 +46,10 @@ class DetailSection extends ConsumerWidget {
                   children: [
                     const CircleAvatar(
                       radius: 60,
-                      backgroundColor: Colors.black,
+                      //backgroundColor: Colors.black,
+                      foregroundImage: AssetImage(
+                        "assets/images/my_image.jpeg",
+                      ),
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -120,7 +126,10 @@ class DetailSection extends ConsumerWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(radius: 60, backgroundColor: Colors.black),
+              const CircleAvatar(
+                radius: 60,
+                foregroundImage: AssetImage("assets/images/my_image.jpeg"),
+              ),
               SizedBox(height: 12.r),
               Text(
                 Details.name,
@@ -176,7 +185,11 @@ class DetailSection extends ConsumerWidget {
                       ),
                     ),
                     SizedBox(height: 12.h),
-                    Text(Details.about, style: textTheme.bodySmall),
+                    //TODO: fix the font size on phone
+                    Text(
+                      Details.about,
+                      style: textTheme.bodySmall?.copyWith(fontSize: 13),
+                    ),
                   ],
                 ),
               ),

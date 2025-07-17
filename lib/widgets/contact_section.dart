@@ -28,7 +28,7 @@ class ContactSection extends StatelessWidget {
                 ? theme.bodyLarge
                 : constraints.maxWidth >= 600
                 ? theme.bodyMedium
-                : theme.bodySmall;
+                : theme.bodySmall?.copyWith(fontSize: 13);
 
         return SizedBox(
           width: double.infinity,

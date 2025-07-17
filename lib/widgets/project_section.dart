@@ -40,7 +40,7 @@ class ProjectSection extends StatelessWidget {
                   SizedBox(
                     width: cardWidth,
                     child: ProjectTile(
-                      imagePath: 'assets/images/project1.png',
+                      imagePath: 'assets/images/portfolio_logo.jpg',
                       title: 'Portfolio Website',
                       projectUrl: "https://github.com/Galadima3/portfolio_site",
                       description:
@@ -48,16 +48,16 @@ class ProjectSection extends StatelessWidget {
                       technologies: ['Dart', 'Flutter Web', 'Github Hosting'],
                     ),
                   ),
-                  SizedBox(width: 16.w),
+                  SizedBox(width: 15.w),
                   SizedBox(
                     width: cardWidth,
                     child: ProjectTile(
-                      imagePath: 'assets/images/project2.png',
+                      imagePath: 'assets/images/labari.jpg',
                       title: 'Labari',
                       projectUrl: "https://github.com/Galadima3/labari",
 
                       description:
-                          'Modern news app built with Flutter showcasing API integration.',
+                          'News app built with Flutter showcasing API integration.',
                       technologies: ['Flutter', 'Riverpod', 'API Integration'],
                     ),
                   ),
@@ -104,53 +104,57 @@ class ProjectTile extends StatelessWidget {
             height: 150.h,
             fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8.h),
-                Text(description, style: theme.textTheme.bodyMedium),
-                SizedBox(height: 10.h),
-                Wrap(
-                  spacing: 6.5,
-                  runSpacing: 6.5,
-                  children: technologies
-                      .map(
-                        (tech) => Chip(
-                          label: Text(tech),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: BorderSide(
-                              color:
-                                  Theme.of(context).colorScheme.onSurface,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Text(description, style: theme.textTheme.bodyMedium),
+                    SizedBox(height: 10.h),
+                    Wrap(
+                      spacing: 6.5,
+                      runSpacing: 6.5,
+                      children: technologies
+                          .map(
+                            (tech) => Chip(
+                              label: Text(tech),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                ),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 7.5,
+                                vertical: 4,
+                              ),
                             ),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 7.5,
-                            vertical: 4,
-                          ),
-                        ),
-                      )
-                      .toList(),
+                          )
+                          .toList(),
+                    ),
+                    SizedBox(height: 10.h),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: SocialIconButton(
+                        icon: FontAwesomeIcons.github,
+                        url: projectUrl!,
+                      
+                        size: 22,
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 12.h),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: SocialIconButton(
-                    icon: FontAwesomeIcons.github,
-                    url: projectUrl!,
-                  
-                    size: 22,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ],
