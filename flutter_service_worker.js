@@ -58,7 +58,7 @@ const RESOURCES = {"android-chrome-512x512.png": "de7ab30a91667603485227d3b11a97
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "262525e2081311609d1fdab966c82bfc",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "269f971cec0d5dc864fe9ae080b19e23",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "8cd5ffa473949b4fdf12972d74fe9e7b",
-"flutter_bootstrap.js": "6ab301686b40cd35aac237805f57c410",
+"flutter_bootstrap.js": "80d51c6e48c016dd339f964b9714d503",
 "favicon.ico": "49e581249d49d6ac9dc4af30f40e01e9",
 "favicon-32x32.png": "419a8775ffbb6bf5417c5b19a4a75672",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
