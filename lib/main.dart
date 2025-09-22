@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio_site/widgets/download_button.dart';
-import 'package:portfolio_site/widgets/contact_section.dart';
-import 'package:portfolio_site/widgets/details_section.dart';
-import 'package:portfolio_site/widgets/project_section.dart';
-import 'package:portfolio_site/widgets/skill_section.dart';
+import 'package:portfolio_site/providers/theme_notifier_provider.dart';
+import 'package:portfolio_site/sections/shared_widgets/download_button.dart';
+import 'package:portfolio_site/sections/contact/contact_section.dart';
+import 'package:portfolio_site/sections/details/details_section.dart';
+import 'package:portfolio_site/sections/projects/project_section.dart';
+import 'package:portfolio_site/sections/skill/skill_section.dart';
 
-
-
-//TODO: Add Image
-
-final themeStateProvider = StateProvider<bool>((ref) => true);
+// final themeStateProvider = StateProvider<bool>((ref) => true);
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -22,7 +19,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isDarkMode = ref.watch(themeStateProvider);
+    bool isDarkMode = ref.watch(themeNotifierProvider);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -31,7 +28,6 @@ class MyApp extends ConsumerWidget {
             title: 'John Galadima - Portfolio',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              //scaffoldBackgroundColor: Colors.white,
               brightness: isDarkMode ? Brightness.dark : Brightness.light,
               fontFamily: 'Montserrat',
             ),
@@ -52,20 +48,18 @@ class MyHomePage extends StatelessWidget {
           builder:
               (context, ref, child) => IconButton(
                 onPressed: () {
-                  final current = ref.read(themeStateProvider);
-                  ref.read(themeStateProvider.notifier).state = !current;
+                  //TODO: Swtich to Notifier Provider ✅
+                  ref.read(themeNotifierProvider.notifier).toggleTheme();
+                  
                 },
                 icon: Icon(
-                  ref.watch(themeStateProvider)
+                  ref.watch(themeNotifierProvider)
                       ? Icons.dark_mode
                       : Icons.light_mode,
                 ),
               ),
         ),
-        actions: [
-          DownloadButton()
-          
-        ],
+        actions: [DownloadButton()],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

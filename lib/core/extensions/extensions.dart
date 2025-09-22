@@ -11,7 +11,7 @@ extension SvgAssetPathExtension on String {
     bool matchTextDirection = false,
     bool allowDrawingOutsideViewBox = false,
     WidgetBuilder? placeholderBuilder,
-    Color? color, // 👈 Added color option
+    Color? color,
     ColorFilter? colorFilter,
     bool excludeFromSemantics = false,
     String? semanticsLabel,
@@ -31,9 +31,10 @@ extension SvgAssetPathExtension on String {
       allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
       placeholderBuilder: placeholderBuilder,
       // 👇 Use color if provided, else fall back to colorFilter
-      colorFilter: color != null
-          ? ColorFilter.mode(color, BlendMode.srcIn)
-          : colorFilter,
+      colorFilter:
+          color != null
+              ? ColorFilter.mode(color, BlendMode.srcIn)
+              : colorFilter,
       excludeFromSemantics: excludeFromSemantics,
       semanticsLabel: semanticsLabel,
       clipBehavior: clipBehavior,

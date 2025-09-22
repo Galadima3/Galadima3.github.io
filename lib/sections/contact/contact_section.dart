@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_site/core/constants/details.dart';
 
-import 'package:portfolio_site/widgets/social_icon_button.dart';
+import 'package:portfolio_site/sections/shared_widgets/social_icon_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {

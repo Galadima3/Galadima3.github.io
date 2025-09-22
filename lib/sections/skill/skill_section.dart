@@ -7,7 +7,6 @@ class SkillSection extends StatelessWidget {
   final List<String> skills = [
     "Dart",
     "Flutter",
-    "MVVM",
     "Riverpod",
     "Clean Architecture",
   ];
@@ -58,9 +57,7 @@ class SkillSection extends StatelessWidget {
                                 ), // Adjust as needed
                                 side: BorderSide(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).colorScheme.onSurface,
+                                      Theme.of(context).colorScheme.onSurface,
                                 ),
                               ),
                               padding: const EdgeInsets.symmetric(
