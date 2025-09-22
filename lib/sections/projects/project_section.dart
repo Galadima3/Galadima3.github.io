@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio_site/core/utils/responsive.dart';
+import 'package:portfolio_site/core/constants/responsive.dart';
 import 'package:portfolio_site/sections/projects/project_tile.dart';
 
 
@@ -13,7 +13,6 @@ class ProjectSection extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        //final isDesktop = constraints.maxWidth >= 1024;
         final isDesktop = constraints.maxWidth > Responsive.desktopBreakpoint;
         final cardWidth = isDesktop ? 340.0 : 280.0;
 
@@ -32,7 +31,7 @@ class ProjectSection extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             SizedBox(
-              height: 400.h,
+              height: 400,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -55,10 +54,21 @@ class ProjectSection extends StatelessWidget {
                       imagePath: 'assets/images/labari.jpg',
                       title: 'Labari',
                       projectUrl: "https://github.com/Galadima3/labari",
-
                       description:
                           'News app built with Flutter showcasing API integration.',
                       technologies: ['Flutter', 'Riverpod', 'API Integration'],
+                    ),
+                  ),
+                  SizedBox(width: 15.w),
+                  SizedBox(
+                    width: cardWidth,
+                    child: ProjectTile(
+                      imagePath: 'assets/images/status_saver.png',
+                      title: 'Status Saver',
+                      projectUrl: "https://github.com/Galadima3/status_saver",
+                      description:
+                          'Android app that lets users save WhatsApp statuses to their device for offline viewing.',
+                      technologies: ['Flutter', 'Riverpod', 'Local Storage'],
                     ),
                   ),
                 ],

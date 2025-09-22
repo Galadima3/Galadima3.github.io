@@ -80,7 +80,6 @@ class ProjectTile extends StatelessWidget {
                       child: SocialIconButton(
                         icon: FontAwesomeIcons.github,
                         url: projectUrl!,
-                      
                         size: 22,
                       ),
                     ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio_site/core/constants/details.dart';
-import 'package:portfolio_site/core/utils/responsive.dart';
+import 'package:portfolio_site/core/constants/responsive.dart';
 import 'package:portfolio_site/sections/details/social_icons_row.dart';
 
 class DetailSection extends ConsumerWidget {
@@ -42,9 +42,8 @@ class DetailSection extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const CircleAvatar(
-                      radius: 60,
-                      //backgroundColor: Colors.black,
+                     CircleAvatar(
+                      radius: 60.r,
                       foregroundImage: AssetImage(
                         "assets/images/my_image.jpeg",
                       ),
@@ -64,7 +63,6 @@ class DetailSection extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.email, size: 20),
-
                             SizedBox(width: 8),
                             Text(Details.email),
                           ],
@@ -186,7 +184,7 @@ class DetailSection extends ConsumerWidget {
                     //TODO: fix the font size on phone
                     Text(
                       Details.about,
-                      style: textTheme.bodySmall?.copyWith(fontSize: 13),
+                      style: textTheme.bodySmall?.copyWith(fontSize: 13.sp),
                     ),
                   ],
                 ),
@@ -198,4 +196,3 @@ class DetailSection extends ConsumerWidget {
     );
   }
 }
-

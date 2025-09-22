@@ -78,7 +78,7 @@ class ContactSection extends StatelessWidget {
                         uri,
                         mode:
                             LaunchMode
-                                .platformDefault, // Critical for web/mobile support
+                                .platformDefault,
                       );
                     } catch (e) {
                       debugPrint('Could not launch email client: $e');

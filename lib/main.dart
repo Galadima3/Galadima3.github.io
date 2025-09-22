@@ -8,8 +8,6 @@ import 'package:portfolio_site/sections/details/details_section.dart';
 import 'package:portfolio_site/sections/projects/project_section.dart';
 import 'package:portfolio_site/sections/skill/skill_section.dart';
 
-// final themeStateProvider = StateProvider<bool>((ref) => true);
-
 void main() {
   runApp(ProviderScope(child: const MyApp()));
 }
@@ -47,11 +45,9 @@ class MyHomePage extends StatelessWidget {
         leading: Consumer(
           builder:
               (context, ref, child) => IconButton(
-                onPressed: () {
-                  //TODO: Swtich to Notifier Provider ✅
-                  ref.read(themeNotifierProvider.notifier).toggleTheme();
-                  
-                },
+                onPressed:
+                    () =>
+                        ref.read(themeNotifierProvider.notifier).toggleTheme(),
                 icon: Icon(
                   ref.watch(themeNotifierProvider)
                       ? Icons.dark_mode

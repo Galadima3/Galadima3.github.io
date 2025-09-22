@@ -1,8 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_site/core/utils/responsive.dart';
-import 'package:portfolio_site/helpers/download_helper.dart';
+import 'package:portfolio_site/core/constants/responsive.dart';
+import 'package:portfolio_site/core/helpers/download_helper.dart';
+
 
 class DownloadButton extends StatelessWidget {
   const DownloadButton({super.key});

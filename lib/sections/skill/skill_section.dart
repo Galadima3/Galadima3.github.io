@@ -7,6 +7,7 @@ class SkillSection extends StatelessWidget {
   final List<String> skills = [
     "Dart",
     "Flutter",
+    "Firebase",
     "Riverpod",
     "Clean Architecture",
   ];
@@ -54,7 +55,7 @@ class SkillSection extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                   10,
-                                ), // Adjust as needed
+                                ), 
                                 side: BorderSide(
                                   color:
                                       Theme.of(context).colorScheme.onSurface,
